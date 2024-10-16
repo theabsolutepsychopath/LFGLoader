@@ -79,7 +79,6 @@ namespace winformgay
             // 
             BoxMiddle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BoxMiddle.BackColor = SystemColors.ActiveCaptionText;
-            BoxMiddle.BorderStyle = BorderStyle.FixedSingle;
             BoxMiddle.Image = LFGMainWindow.Properties.Resources._2505179ede56bc369c490b377cc73744;
             BoxMiddle.Location = new Point(511, 111);
             BoxMiddle.Name = "BoxMiddle";
