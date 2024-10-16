@@ -50,6 +50,20 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "DirectShowLib": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Vlc.DotNet.Core": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Vlc.DotNet.Forms": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

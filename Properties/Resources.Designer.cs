@@ -63,6 +63,36 @@ namespace LFGMainWindow.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2505179ede56bc369c490b377cc73744 {
+            get {
+                object obj = ResourceManager.GetObject("2505179ede56bc369c490b377cc73744", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _5dea59a6a24c400fac4fbb4606eb865a {
+            get {
+                object obj = ResourceManager.GetObject("5dea59a6a24c400fac4fbb4606eb865a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lfg_ezgif_com_optimize {
+            get {
+                object obj = ResourceManager.GetObject("lfg-ezgif.com-optimize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wallpaper_minecraft_pc_bundle_1080x1920 {
             get {
                 object obj = ResourceManager.GetObject("wallpaper_minecraft_pc_bundle_1080x1920", resourceCulture);
