@@ -1,9 +1,11 @@
 using System.Linq.Expressions;
 using System.Runtime.InteropServices;
+using LFGSettings;
 using LFGMainWindow;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace winformgay
+namespace LFGMain
+
 {
     public partial class LFGLoader : Form
     {
@@ -36,16 +38,19 @@ namespace winformgay
         }
         private void InstallPlay_Click(object sender, EventArgs e)
         {
-            if (VRMode.Checked)
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                MessageBox.Show("VR Mode is enabled.");
-            }
-            else
-            {
-                MessageBox.Show("VR Mode is disabled.");
+                string path = @"C:\Program Files (x86)\Steam\steamapps\common\Among Us\Among Us.exe";
+                if (File.Exists(path))
+                {
+                    MessageBox.Show("Among Us is already installed.");
+                }
+                else
+                {
+                    MessageBox.Show("Among Us is not installed. Please install Among Us before continuing.");
+                }
             }
         }
-
         private void BoxMiddle_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This is working as intended.");

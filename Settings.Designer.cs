@@ -1,4 +1,4 @@
-﻿namespace LFGMainWindow
+﻿namespace LFGSettings
 {
     partial class Settings
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             checkBox1 = new CheckBox();
+            checkBox1.Checked = LFGMainWindow.Settings1.Default.GayReference;
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -79,7 +80,7 @@
             button3.TabIndex = 3;
             button3.Text = "CLOSE";
             button3.UseVisualStyleBackColor = false;
-            button3.Click += this.button3_Click;
+            button3.Click += button3_Click;
             // 
             // Settings
             // 
@@ -94,7 +95,7 @@
             Font = new Font("ProFont IIx Nerd Font", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Settings";
-            StartPosition = FormStartPosition.CenterParent; // Add this line
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

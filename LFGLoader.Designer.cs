@@ -1,5 +1,5 @@
 ﻿
-namespace winformgay
+namespace LFGMain
 {
     partial class LFGLoader
     {
@@ -66,12 +66,12 @@ namespace winformgay
             InstallPlay.FlatAppearance.BorderColor = Color.Black;
             InstallPlay.FlatAppearance.BorderSize = 3;
             InstallPlay.FlatStyle = FlatStyle.Flat;
-            InstallPlay.Font = new Font("ProFont IIx Nerd Font", 17.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            InstallPlay.Font = new Font("ProFont IIx Nerd Font", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             InstallPlay.Location = new Point(532, 591);
             InstallPlay.Name = "InstallPlay";
             InstallPlay.Size = new Size(200, 50);
             InstallPlay.TabIndex = 3;
-            InstallPlay.Text = "LOADING...";
+            InstallPlay.Text = "FIND GAME DIR";
             InstallPlay.UseVisualStyleBackColor = false;
             InstallPlay.Click += InstallPlay_Click;
             // 
@@ -156,11 +156,11 @@ namespace winformgay
             StatusLabel.Anchor = AnchorStyles.Bottom;
             StatusLabel.AutoSize = true;
             StatusLabel.ForeColor = SystemColors.ControlLightLight;
-            StatusLabel.Location = new Point(540, 651);
+            StatusLabel.Location = new Point(425, 651);
             StatusLabel.Name = "StatusLabel";
-            StatusLabel.Size = new Size(184, 15);
+            StatusLabel.Size = new Size(414, 15);
             StatusLabel.TabIndex = 14;
-            StatusLabel.Text = "Downloading Mods (32/182)";
+            StatusLabel.Text = "Nothing is happening. Try launching or installing a game!";
             // 
             // panel1
             // 

@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LFGMain;
+using LFGMainWindow;
 
-namespace LFGMainWindow
+namespace LFGSettings
 {
     public partial class Settings : Form
     {
@@ -19,7 +21,10 @@ namespace LFGMainWindow
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Settings1.Default.GayReference = checkBox1.Checked;
+            Settings1.Default.Save();
             this.Close();
         }
+
     }
 }

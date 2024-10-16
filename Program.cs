@@ -1,4 +1,4 @@
-namespace winformgay
+namespace LFGMain
 {
     internal static class Program
     {
