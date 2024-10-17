@@ -34,5 +34,23 @@ namespace LFGMainWindow {
                 this["GayReference"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public string checkbox1 {
+            get {
+                return ((string)(this["checkbox1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public string VRMode {
+            get {
+                return ((string)(this["VRMode"]));
+            }
+        }
     }
 }
