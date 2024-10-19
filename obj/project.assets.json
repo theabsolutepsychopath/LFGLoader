@@ -1,146 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {
-      "DirectShowLib/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/DirectShowLib.dll": {}
-        },
-        "runtime": {
-          "lib/DirectShowLib.dll": {}
-        }
-      },
-      "Vlc.DotNet.Core/3.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Vlc.DotNet.Core.Interops": "3.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Vlc.DotNet.Core.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Vlc.DotNet.Core.dll": {}
-        }
-      },
-      "Vlc.DotNet.Core.Interops/3.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Vlc.DotNet.Core.Interops.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Vlc.DotNet.Core.Interops.dll": {}
-        }
-      },
-      "Vlc.DotNet.Forms/3.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Vlc.DotNet.Core": "3.1.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.0/Vlc.DotNet.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/Vlc.DotNet.Forms.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WindowsForms"
-        ]
-      }
-    }
+    "net8.0-windows7.0": {}
   },
-  "libraries": {
-    "DirectShowLib/1.0.0": {
-      "sha512": "oWwOk9Lj8JIMWPsfx8bUbJ/uWhHlRKpMaU5oVf8Kl9SLMhmrnr0kXg0ebDv3oOmKxZ/D1yrmw+x7UGmgMqUxFA==",
-      "type": "package",
-      "path": "directshowlib/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "directshowlib.1.0.0.nupkg.sha512",
-        "directshowlib.nuspec",
-        "lib/DirectShowLib.dll",
-        "lib/DirectShowLib.pdb"
-      ]
-    },
-    "Vlc.DotNet.Core/3.1.0": {
-      "sha512": "t9jinVlEEgS0PHyNeu+jGE06yKeqyQ4RG7Bpno1M1ghxAhogpc7rFkRg5/CMHINsZJw4nr88I3xrUecanlA5kA==",
-      "type": "package",
-      "path": "vlc.dotnet.core/3.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net35/Vlc.DotNet.Core.dll",
-        "lib/net40/Vlc.DotNet.Core.dll",
-        "lib/net45/Vlc.DotNet.Core.dll",
-        "lib/netstandard1.3/Vlc.DotNet.Core.dll",
-        "lib/netstandard2.0/Vlc.DotNet.Core.dll",
-        "logo.png",
-        "vlc.dotnet.core.3.1.0.nupkg.sha512",
-        "vlc.dotnet.core.nuspec"
-      ]
-    },
-    "Vlc.DotNet.Core.Interops/3.1.0": {
-      "sha512": "22JkrxSBN9OVkxT3zMgwT67kUc+RQx35+NG5md9n9qM7vEI2EUEVqHeKiO8ssF7/mYi6Z8lJx4AgdWa5JAvONw==",
-      "type": "package",
-      "path": "vlc.dotnet.core.interops/3.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net35/Vlc.DotNet.Core.Interops.dll",
-        "lib/net40/Vlc.DotNet.Core.Interops.dll",
-        "lib/net45/Vlc.DotNet.Core.Interops.dll",
-        "lib/netstandard1.3/Vlc.DotNet.Core.Interops.dll",
-        "lib/netstandard2.0/Vlc.DotNet.Core.Interops.dll",
-        "logo.png",
-        "vlc.dotnet.core.interops.3.1.0.nupkg.sha512",
-        "vlc.dotnet.core.interops.nuspec"
-      ]
-    },
-    "Vlc.DotNet.Forms/3.1.0": {
-      "sha512": "B40j4tmKKwLz4O+BfVv7t5Yeygq4nkSBNJXFr7VQfoVU3a4WLFSisR1FxOnBwM/soM2/BIJuNhICCIF+C5XHWA==",
-      "type": "package",
-      "path": "vlc.dotnet.forms/3.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net35/Vlc.DotNet.Forms.dll",
-        "lib/net40/Vlc.DotNet.Forms.dll",
-        "lib/net45/Vlc.DotNet.Forms.dll",
-        "lib/netcoreapp3.0/Vlc.DotNet.Forms.dll",
-        "logo.png",
-        "vlc.dotnet.forms.3.1.0.nupkg.sha512",
-        "vlc.dotnet.forms.nuspec"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": [
-      "DirectShowLib >= 1.0.0",
-      "Vlc.DotNet.Core >= 3.1.0",
-      "Vlc.DotNet.Forms >= 3.1.0"
-    ]
+    "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\akg\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\ysg\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\akg\\source\\repos\\winformgay\\LFGMainWindow.csproj",
+      "projectUniqueName": "C:\\Users\\ysg\\Source\\Repos\\LFGLoader\\LFGMainWindow.csproj",
       "projectName": "LFGMainWindow",
-      "projectPath": "C:\\Users\\akg\\source\\repos\\winformgay\\LFGMainWindow.csproj",
-      "packagesPath": "C:\\Users\\akg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\akg\\source\\repos\\winformgay\\obj\\",
+      "projectPath": "C:\\Users\\ysg\\Source\\Repos\\LFGLoader\\LFGMainWindow.csproj",
+      "packagesPath": "C:\\Users\\ysg\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ysg\\Source\\Repos\\LFGLoader\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\akg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ysg\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -149,8 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files\\dotnet\\library-packs": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -172,20 +55,6 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
-        "dependencies": {
-          "DirectShowLib": {
-            "target": "Package",
-            "version": "[1.0.0, )"
-          },
-          "Vlc.DotNet.Core": {
-            "target": "Package",
-            "version": "[3.1.0, )"
-          },
-          "Vlc.DotNet.Forms": {
-            "target": "Package",
-            "version": "[3.1.0, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -208,17 +77,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'DirectShowLib 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "DirectShowLib",
-      "targetGraphs": [
-        "net8.0-windows7.0"
-      ]
-    }
-  ]
+  }
 }

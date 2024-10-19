@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LFGMainWindow")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3429f606b40d72ac462eaa1b547447500dc07e10")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcf5ecd30e8102560c7fdcfde5da96f0eb9ecc3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("LFGMainWindow")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LFGMainWindow")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

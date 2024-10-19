@@ -29,64 +29,62 @@ namespace LFGMain
         /// </summary>
         private void InitializeComponent()
         {
-            VRMode = new CheckBox();
-            InstallPlay = new Button();
-            BoxMiddle = new PictureBox();
+            vrMode = new CheckBox();
+            installPlay = new Button();
+            boxMiddle = new PictureBox();
             close = new Button();
-            topdrag = new Panel();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            boxRight = new PictureBox();
+            boxLeft = new PictureBox();
             SettingsButtonMain = new Button();
-            StatusLabel = new Label();
-            panel1 = new Panel();
+            statusLabel = new Label();
             LFGText = new Label();
-            ((System.ComponentModel.ISupportInitialize)BoxMiddle).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            leftCover = new Label();
+            ((System.ComponentModel.ISupportInitialize)boxMiddle).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)boxRight).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)boxLeft).BeginInit();
             SuspendLayout();
             // 
-            // VRMode
+            // vrMode
             // 
-            VRMode.Anchor = AnchorStyles.Bottom;
-            VRMode.AutoSize = true;
-            VRMode.FlatStyle = FlatStyle.Popup;
-            VRMode.Font = new Font("ProFont IIx Nerd Font", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            VRMode.Location = new Point(581, 560);
-            VRMode.Name = "VRMode";
-            VRMode.Size = new Size(103, 24);
-            VRMode.TabIndex = 2;
-            VRMode.Text = "VR Mode";
-            VRMode.UseVisualStyleBackColor = true;
+            vrMode.Anchor = AnchorStyles.Bottom;
+            vrMode.AutoSize = true;
+            vrMode.FlatStyle = FlatStyle.Popup;
+            vrMode.Font = new Font("ProFont IIx Nerd Font", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            vrMode.Location = new Point(559, 551);
+            vrMode.Name = "vrMode";
+            vrMode.Size = new Size(147, 33);
+            vrMode.TabIndex = 2;
+            vrMode.Text = "VR Mode";
+            vrMode.UseVisualStyleBackColor = true;
             // 
-            // InstallPlay
+            // installPlay
             // 
-            InstallPlay.Anchor = AnchorStyles.Bottom;
-            InstallPlay.BackColor = Color.SpringGreen;
-            InstallPlay.Cursor = Cursors.Hand;
-            InstallPlay.FlatAppearance.BorderColor = Color.Black;
-            InstallPlay.FlatAppearance.BorderSize = 3;
-            InstallPlay.FlatStyle = FlatStyle.Flat;
-            InstallPlay.Font = new Font("ProFont IIx Nerd Font", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            InstallPlay.Location = new Point(532, 591);
-            InstallPlay.Name = "InstallPlay";
-            InstallPlay.Size = new Size(200, 50);
-            InstallPlay.TabIndex = 3;
-            InstallPlay.Text = "FIND GAME DIR";
-            InstallPlay.UseVisualStyleBackColor = false;
-            InstallPlay.Click += InstallPlay_Click;
+            installPlay.Anchor = AnchorStyles.Bottom;
+            installPlay.BackColor = Color.SpringGreen;
+            installPlay.Cursor = Cursors.Hand;
+            installPlay.FlatAppearance.BorderColor = Color.Black;
+            installPlay.FlatAppearance.BorderSize = 3;
+            installPlay.FlatStyle = FlatStyle.Flat;
+            installPlay.Font = new Font("ProFont IIx Nerd Font", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            installPlay.Location = new Point(532, 591);
+            installPlay.Name = "installPlay";
+            installPlay.Size = new Size(200, 50);
+            installPlay.TabIndex = 3;
+            installPlay.Text = "FIND GAME DIR";
+            installPlay.UseVisualStyleBackColor = false;
             // 
-            // BoxMiddle
+            // boxMiddle
             // 
-            BoxMiddle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            BoxMiddle.BackColor = SystemColors.ActiveCaptionText;
-            BoxMiddle.Image = LFGMainWindow.Properties.Resources._2505179ede56bc369c490b377cc73744;
-            BoxMiddle.Location = new Point(511, 111);
-            BoxMiddle.Name = "BoxMiddle";
-            BoxMiddle.Size = new Size(243, 432);
-            BoxMiddle.SizeMode = PictureBoxSizeMode.StretchImage;
-            BoxMiddle.TabIndex = 4;
-            BoxMiddle.TabStop = false;
-            BoxMiddle.Click += BoxMiddle_Click;
+            boxMiddle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            boxMiddle.BackColor = SystemColors.ActiveCaptionText;
+            boxMiddle.Image = LFGMainWindow.Properties.Resources._2505179ede56bc369c490b377cc73744;
+            boxMiddle.Location = new Point(511, 111);
+            boxMiddle.Name = "boxMiddle";
+            boxMiddle.Size = new Size(243, 432);
+            boxMiddle.SizeMode = PictureBoxSizeMode.StretchImage;
+            boxMiddle.TabIndex = 4;
+            boxMiddle.TabStop = false;
+            boxMiddle.Click += boxMiddle_Click;
             // 
             // close
             // 
@@ -104,35 +102,29 @@ namespace LFGMain
             close.UseVisualStyleBackColor = false;
             close.Click += close_Click;
             // 
-            // topdrag
+            // boxRight
             // 
-            topdrag.Location = new Point(0, 0);
-            topdrag.Name = "topdrag";
-            topdrag.Size = new Size(1208, 53);
-            topdrag.TabIndex = 8;
-            topdrag.Paint += topdrag_Paint;
+            boxRight.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            boxRight.Image = LFGMainWindow.Properties.Resources.wallpaper_minecraft_pc_bundle_1080x1920;
+            boxRight.Location = new Point(760, 111);
+            boxRight.Name = "boxRight";
+            boxRight.Size = new Size(243, 432);
+            boxRight.SizeMode = PictureBoxSizeMode.StretchImage;
+            boxRight.TabIndex = 9;
+            boxRight.TabStop = false;
+            boxRight.Click += boxRight_Click;
             // 
-            // pictureBox1
+            // boxLeft
             // 
-            pictureBox1.Anchor = AnchorStyles.Bottom;
-            pictureBox1.Image = LFGMainWindow.Properties.Resources.wallpaper_minecraft_pc_bundle_1080x1920;
-            pictureBox1.Location = new Point(760, 111);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(243, 432);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox2.Image = LFGMainWindow.Properties.Resources._5dea59a6a24c400fac4fbb4606eb865a;
-            pictureBox2.Location = new Point(262, 111);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(243, 432);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 10;
-            pictureBox2.TabStop = false;
+            boxLeft.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            boxLeft.Image = LFGMainWindow.Properties.Resources._5dea59a6a24c400fac4fbb4606eb865a;
+            boxLeft.Location = new Point(262, 111);
+            boxLeft.Name = "boxLeft";
+            boxLeft.Size = new Size(243, 432);
+            boxLeft.SizeMode = PictureBoxSizeMode.StretchImage;
+            boxLeft.TabIndex = 10;
+            boxLeft.TabStop = false;
+            boxLeft.Click += boxLeft_Click;
             // 
             // SettingsButtonMain
             // 
@@ -143,86 +135,84 @@ namespace LFGMain
             SettingsButtonMain.FlatStyle = FlatStyle.Flat;
             SettingsButtonMain.Font = new Font("ProFont IIx Nerd Font", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SettingsButtonMain.ForeColor = SystemColors.ControlText;
-            SettingsButtonMain.Location = new Point(1053, 597);
+            SettingsButtonMain.Location = new Point(1141, 597);
             SettingsButtonMain.Name = "SettingsButtonMain";
-            SettingsButtonMain.Size = new Size(199, 72);
+            SettingsButtonMain.Size = new Size(111, 72);
             SettingsButtonMain.TabIndex = 13;
             SettingsButtonMain.Text = "Settings";
             SettingsButtonMain.UseVisualStyleBackColor = false;
             SettingsButtonMain.Click += SettingsButtonMain_Click;
             // 
-            // StatusLabel
+            // statusLabel
             // 
-            StatusLabel.Anchor = AnchorStyles.Bottom;
-            StatusLabel.AutoSize = true;
-            StatusLabel.ForeColor = SystemColors.ControlLightLight;
-            StatusLabel.Location = new Point(425, 651);
-            StatusLabel.Name = "StatusLabel";
-            StatusLabel.Size = new Size(414, 15);
-            StatusLabel.TabIndex = 14;
-            StatusLabel.Text = "Nothing is happening. Try launching or installing a game!";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Black;
-            panel1.Location = new Point(254, 105);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(756, 444);
-            panel1.TabIndex = 17;
+            statusLabel.Anchor = AnchorStyles.Bottom;
+            statusLabel.AutoSize = true;
+            statusLabel.ForeColor = SystemColors.ControlLightLight;
+            statusLabel.Location = new Point(285, 650);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new Size(694, 22);
+            statusLabel.TabIndex = 14;
+            statusLabel.Text = "Nothing is happening. Try launching or installing a game!";
             // 
             // LFGText
             // 
             LFGText.AutoSize = true;
             LFGText.Font = new Font("ProFont IIx Nerd Font", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LFGText.Location = new Point(356, 38);
+            LFGText.Location = new Point(226, 9);
             LFGText.Name = "LFGText";
-            LFGText.Size = new Size(553, 60);
+            LFGText.Size = new Size(806, 89);
             LFGText.TabIndex = 18;
             LFGText.Text = "SELECT YOUR GAME";
             LFGText.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // leftCover
+            // 
+            leftCover.BackColor = Color.Black;
+            leftCover.Location = new Point(254, 105);
+            leftCover.Name = "leftCover";
+            leftCover.Size = new Size(756, 444);
+            leftCover.TabIndex = 0;
+            // 
             // LFGLoader
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(12F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             ClientSize = new Size(1264, 681);
+            Controls.Add(boxLeft);
             Controls.Add(LFGText);
-            Controls.Add(StatusLabel);
+            Controls.Add(statusLabel);
             Controls.Add(SettingsButtonMain);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            Controls.Add(boxRight);
             Controls.Add(close);
-            Controls.Add(BoxMiddle);
-            Controls.Add(InstallPlay);
-            Controls.Add(VRMode);
-            Controls.Add(topdrag);
-            Controls.Add(panel1);
+            Controls.Add(boxMiddle);
+            Controls.Add(installPlay);
+            Controls.Add(vrMode);
+            Controls.Add(leftCover);
             Font = new Font("ProFont IIx Nerd Font", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LFGLoader";
             Text = "GGLoader";
-            Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)BoxMiddle).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            MouseDown += LFGLoader_MouseDown;
+            ((System.ComponentModel.ISupportInitialize)boxMiddle).EndInit();
+            ((System.ComponentModel.ISupportInitialize)boxRight).EndInit();
+            ((System.ComponentModel.ISupportInitialize)boxLeft).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private ImageList imageList1;
-        private CheckBox VRMode;
-        private Button InstallPlay;
+        private CheckBox vrMode;
+        private Button installPlay;
         private Button gaybutton;
-        private PictureBox BoxMiddle;
         private Button close;
-        private Panel topdrag;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private Button SettingsButtonMain;
-        private Label StatusLabel;
-        private Panel panel1;
+        private Label statusLabel;
         private Label LFGText;
+        private Label leftCover;
+        public PictureBox boxMiddle;
+        public PictureBox boxRight;
+        public PictureBox boxLeft;
     }
 }

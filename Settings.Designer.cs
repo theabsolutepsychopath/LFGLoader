@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             checkBox1 = new CheckBox();
-            checkBox1.Checked = LFGMainWindow.Settings1.Default.GayReference;
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
+            closeButton = new Button();
             SuspendLayout();
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
             checkBox1.Font = new Font("ProFont IIx Nerd Font", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox1.Location = new Point(356, 71);
+            checkBox1.Location = new Point(12, 19);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(182, 24);
+            checkBox1.Size = new Size(263, 33);
             checkBox1.TabIndex = 0;
             checkBox1.Text = "Gay References";
             checkBox1.UseVisualStyleBackColor = true;
@@ -69,26 +68,26 @@
             button2.Text = "GAME PATHS";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // closeButton
             // 
-            button3.BackColor = Color.Brown;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("ProFont IIx Nerd Font", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(559, 371);
-            button3.Name = "button3";
-            button3.Size = new Size(284, 69);
-            button3.TabIndex = 3;
-            button3.Text = "CLOSE";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            closeButton.BackColor = Color.Brown;
+            closeButton.FlatStyle = FlatStyle.Flat;
+            closeButton.Font = new Font("ProFont IIx Nerd Font", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            closeButton.Location = new Point(787, 12);
+            closeButton.Name = "closeButton";
+            closeButton.Size = new Size(39, 40);
+            closeButton.TabIndex = 3;
+            closeButton.Text = "X";
+            closeButton.UseVisualStyleBackColor = false;
+            closeButton.Click += button3_Click;
             // 
             // Settings
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(12F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(838, 441);
-            Controls.Add(button3);
+            Controls.Add(closeButton);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(checkBox1);
@@ -106,6 +105,6 @@
         private CheckBox checkBox1;
         private Button button1;
         private Button button2;
-        private Button button3;
+        private Button closeButton;
     }
 }
