@@ -93,6 +93,16 @@ namespace LFGMainWindow.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap library_600x900 {
+            get {
+                object obj = ResourceManager.GetObject("library_600x900", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wallpaper_minecraft_pc_bundle_1080x1920 {
             get {
                 object obj = ResourceManager.GetObject("wallpaper_minecraft_pc_bundle_1080x1920", resourceCulture);

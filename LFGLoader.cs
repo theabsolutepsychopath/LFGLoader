@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Drawing;
 using LFGSettings;
+using LFGMainWindow;
 
 namespace LFGMain
 {
@@ -153,6 +154,7 @@ namespace LFGMain
 
         private void SettingsButtonMain_Click(object sender, EventArgs e)
         {
+            
             Settings settings = new Settings();
             settings.ShowDialog(this);
         }
@@ -180,6 +182,27 @@ namespace LFGMain
         private void boxRight_Click(object sender, EventArgs e)
         {
             box_Click(sender, e);
+        }
+
+        private void installPlay_Click(object sender, EventArgs e)
+        {
+            string selectedBoxName = LFGMainWindow.Properties.Settings.Default.selectedBox;
+            if (selectedBoxName == "None")
+            {
+                installPlay.BackColor = Color.Red;
+                MessageBox.Show("Please select a game to install and play.");
+                installPlay.BackColor = Color.SpringGreen;
+                return;
+            }
+            bool GoodCheck = FolderUtilities.CheckFolderExists();
+            if (GoodCheck == true)
+            {
+                MessageBox.Show("ayeeee, you got the game installed! ggs lets continue");
+            }
+            else
+            {
+                MessageBox.Show("bitch, why are you trying to install mods for a game you dont have installed? go install the game. smh my head");
+            }
         }
     }
 }

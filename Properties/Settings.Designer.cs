@@ -34,5 +34,17 @@ namespace LFGMainWindow.Properties {
                 this["selectedBox"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool GayReference {
+            get {
+                return ((bool)(this["GayReference"]));
+            }
+            set {
+                this["GayReference"] = value;
+            }
+        }
     }
 }

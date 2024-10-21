@@ -50,9 +50,9 @@ namespace LFGMain
             vrMode.AutoSize = true;
             vrMode.FlatStyle = FlatStyle.Popup;
             vrMode.Font = new Font("ProFont IIx Nerd Font", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            vrMode.Location = new Point(559, 551);
+            vrMode.Location = new Point(581, 560);
             vrMode.Name = "vrMode";
-            vrMode.Size = new Size(147, 33);
+            vrMode.Size = new Size(103, 24);
             vrMode.TabIndex = 2;
             vrMode.Text = "VR Mode";
             vrMode.UseVisualStyleBackColor = true;
@@ -72,12 +72,13 @@ namespace LFGMain
             installPlay.TabIndex = 3;
             installPlay.Text = "FIND GAME DIR";
             installPlay.UseVisualStyleBackColor = false;
+            installPlay.Click += installPlay_Click;
             // 
             // boxMiddle
             // 
             boxMiddle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             boxMiddle.BackColor = SystemColors.ActiveCaptionText;
-            boxMiddle.Image = LFGMainWindow.Properties.Resources._2505179ede56bc369c490b377cc73744;
+            boxMiddle.Image = LFGMainWindow.Properties.Resources.library_600x900;
             boxMiddle.Location = new Point(511, 111);
             boxMiddle.Name = "boxMiddle";
             boxMiddle.Size = new Size(243, 432);
@@ -135,9 +136,9 @@ namespace LFGMain
             SettingsButtonMain.FlatStyle = FlatStyle.Flat;
             SettingsButtonMain.Font = new Font("ProFont IIx Nerd Font", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SettingsButtonMain.ForeColor = SystemColors.ControlText;
-            SettingsButtonMain.Location = new Point(1141, 597);
+            SettingsButtonMain.Location = new Point(1046, 597);
             SettingsButtonMain.Name = "SettingsButtonMain";
-            SettingsButtonMain.Size = new Size(111, 72);
+            SettingsButtonMain.Size = new Size(206, 72);
             SettingsButtonMain.TabIndex = 13;
             SettingsButtonMain.Text = "Settings";
             SettingsButtonMain.UseVisualStyleBackColor = false;
@@ -148,9 +149,9 @@ namespace LFGMain
             statusLabel.Anchor = AnchorStyles.Bottom;
             statusLabel.AutoSize = true;
             statusLabel.ForeColor = SystemColors.ControlLightLight;
-            statusLabel.Location = new Point(285, 650);
+            statusLabel.Location = new Point(425, 650);
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(694, 22);
+            statusLabel.Size = new Size(414, 15);
             statusLabel.TabIndex = 14;
             statusLabel.Text = "Nothing is happening. Try launching or installing a game!";
             // 
@@ -158,9 +159,9 @@ namespace LFGMain
             // 
             LFGText.AutoSize = true;
             LFGText.Font = new Font("ProFont IIx Nerd Font", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LFGText.Location = new Point(226, 9);
+            LFGText.Location = new Point(356, 45);
             LFGText.Name = "LFGText";
-            LFGText.Size = new Size(806, 89);
+            LFGText.Size = new Size(553, 60);
             LFGText.TabIndex = 18;
             LFGText.Text = "SELECT YOUR GAME";
             LFGText.TextAlign = ContentAlignment.MiddleCenter;
@@ -175,7 +176,7 @@ namespace LFGMain
             // 
             // LFGLoader
             // 
-            AutoScaleDimensions = new SizeF(12F, 22F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             ClientSize = new Size(1264, 681);
