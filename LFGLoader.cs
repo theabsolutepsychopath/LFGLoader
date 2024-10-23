@@ -16,7 +16,10 @@ namespace LFGMain
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
+        [DllImport("gdi32")]
+        private static extern IntPtr CreateEllipticRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect);
+        [DllImport("dwmapi")]
+        private static extern int DwmEnableBlurBehindWindow(IntPtr hWnd, ref DwmBlurbehind pBlurBehind);
         // Constant values for window dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
@@ -55,7 +58,7 @@ namespace LFGMain
             }
         }
 
-        private void AddOverlay(Control parentControl, ref Panel overlayField)
+        private static void AddOverlay(Control parentControl, ref Panel overlayField)
         {
             Panel overlay = new Panel
             {
@@ -79,7 +82,7 @@ namespace LFGMain
             overlayField = overlay;
         }
 
-        private void ShowOverlay(Panel overlay)
+        private static void ShowOverlay(Panel overlay)
         {
             if (overlay != null)
             {
@@ -87,7 +90,7 @@ namespace LFGMain
             }
         }
 
-        private void HideOverlay(Panel overlay)
+        private static void HideOverlay(Panel overlay)
         {
             if (overlay != null)
             {
@@ -122,7 +125,7 @@ namespace LFGMain
             }
         }
 
-        private void box_Click(object sender, EventArgs e)
+        private void Box_Click(object sender, EventArgs e)
         {
             Control clickedBox = sender as Control;
 
@@ -147,14 +150,14 @@ namespace LFGMain
             }
         }
 
-        private void close_Click(object sender, EventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void SettingsButtonMain_Click(object sender, EventArgs e)
         {
-            
+
             Settings settings = new Settings();
             settings.ShowDialog(this);
         }
@@ -169,22 +172,22 @@ namespace LFGMain
             }
         }
 
-        private void boxLeft_Click(object sender, EventArgs e)
+        private void BoxLeft_Click(object sender, EventArgs e)
         {
-            box_Click(sender, e);
+            Box_Click(sender, e);
         }
 
-        private void boxMiddle_Click(object sender, EventArgs e)
+        private void BoxMiddle_Click(object sender, EventArgs e)
         {
-            box_Click(sender, e);
+            Box_Click(sender, e);
         }
 
-        private void boxRight_Click(object sender, EventArgs e)
+        private void BoxRight_Click(object sender, EventArgs e)
         {
-            box_Click(sender, e);
+            Box_Click(sender, e);
         }
 
-        private void installPlay_Click(object sender, EventArgs e)
+        private void InstallPlay_Click(object sender, EventArgs e)
         {
             string selectedBoxName = LFGMainWindow.Properties.Settings.Default.selectedBox;
             if (selectedBoxName == "None")
@@ -194,8 +197,8 @@ namespace LFGMain
                 installPlay.BackColor = Color.SpringGreen;
                 return;
             }
-            bool GoodCheck = FolderUtilities.CheckFolderExists();
-            if (GoodCheck == true)
+            var goodCheck = FolderUtilities.CheckFolderExists();
+            if (goodCheck == true)
             {
                 MessageBox.Show("ayeeee, you got the game installed! ggs lets continue");
             }
@@ -204,5 +207,16 @@ namespace LFGMain
                 MessageBox.Show("bitch, why are you trying to install mods for a game you dont have installed? go install the game. smh my head");
             }
         }
+
+        private void LFGLoader_Load(object sender, EventArgs e)
+        {
+            var hr = CreateEllipticRgn(0, 0, Width, Height);
+            var dbb = new DwmBlurbehind { FEnable = true, DwFlags = 1, HRgnBlur = hr, FTransitionOnMaximized = false };
+            DwmEnableBlurBehindWindow(Handle, ref dbb);
+        }
+            protected override void OnPaint(PaintEventArgs e)
+    {
+        e.Graphics.FillRectangle(new SolidBrush(Color.Black), new Rectangle(0, 0, Width, Height));
+    }
     }
 }
