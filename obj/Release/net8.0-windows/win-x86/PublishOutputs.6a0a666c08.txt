@@ -1,8 +1,0 @@
-C:\Users\akg\Desktop\LFGMainWindow.pdb
-C:\Users\akg\Desktop\LFGMainWindow.dll.config
-C:\Users\akg\Desktop\D3DCompiler_47_cor3.dll
-C:\Users\akg\Desktop\PenImc_cor3.dll
-C:\Users\akg\Desktop\PresentationNative_cor3.dll
-C:\Users\akg\Desktop\vcruntime140_cor3.dll
-C:\Users\akg\Desktop\wpfgfx_cor3.dll
-C:\Users\akg\Desktop\LFGMainWindow.exe
