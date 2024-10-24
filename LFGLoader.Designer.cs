@@ -29,6 +29,7 @@ namespace LFGMain
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LFGLoader));
             vrMode = new CheckBox();
             installPlay = new Button();
             boxMiddle = new PictureBox();
@@ -49,6 +50,7 @@ namespace LFGMain
             vrMode.AutoSize = true;
             vrMode.FlatStyle = FlatStyle.Popup;
             vrMode.Font = new Font("ProFont IIx Nerd Font", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            vrMode.ForeColor = SystemColors.Control;
             vrMode.Location = new Point(412, 565);
             vrMode.Name = "vrMode";
             vrMode.Size = new Size(103, 24);
@@ -77,7 +79,7 @@ namespace LFGMain
             // 
             boxMiddle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             boxMiddle.BackColor = SystemColors.ActiveCaptionText;
-            boxMiddle.Image = LFGMainWindow.Properties.Resources.library_600x900;
+            boxMiddle.Image = GGLoader.Properties.Resources.library_600x900;
             boxMiddle.Location = new Point(340, 124);
             boxMiddle.Name = "boxMiddle";
             boxMiddle.Size = new Size(246, 432);
@@ -105,7 +107,7 @@ namespace LFGMain
             // boxLeft
             // 
             boxLeft.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            boxLeft.Image = LFGMainWindow.Properties.Resources._5dea59a6a24c400fac4fbb4606eb865a;
+            boxLeft.Image = GGLoader.Properties.Resources._5dea59a6a24c400fac4fbb4606eb865a;
             boxLeft.Location = new Point(89, 124);
             boxLeft.Name = "boxLeft";
             boxLeft.Size = new Size(246, 432);
@@ -157,7 +159,7 @@ namespace LFGMain
             // boxRight
             // 
             boxRight.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            boxRight.Image = LFGMainWindow.Properties.Resources.wallpaper_minecraft_pc_bundle_1080x1920;
+            boxRight.Image = GGLoader.Properties.Resources.wallpaper_minecraft_pc_bundle_1080x1920;
             boxRight.Location = new Point(591, 124);
             boxRight.Name = "boxRight";
             boxRight.Size = new Size(246, 432);
@@ -183,10 +185,10 @@ namespace LFGMain
             Controls.Add(vrMode);
             Font = new Font("ProFont IIx Nerd Font", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LFGLoader";
             Opacity = 0.98D;
             Text = "GGLoader";
-            Load += LFGLoader_Load;
             MouseDown += LFGLoader_MouseDown;
             ((System.ComponentModel.ISupportInitialize)boxMiddle).EndInit();
             ((System.ComponentModel.ISupportInitialize)boxLeft).EndInit();
@@ -202,10 +204,10 @@ namespace LFGMain
         private Button gaybutton;
         private Button close;
         private Button SettingsButtonMain;
-        private Label statusLabel;
         private Label LFGText;
         public PictureBox boxMiddle;
         public PictureBox boxRight;
         public PictureBox boxLeft;
+        public static Label statusLabel;
     }
 }

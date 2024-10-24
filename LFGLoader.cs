@@ -10,16 +10,15 @@ namespace LFGMain
 {
     public partial class LFGLoader : Form
     {
+        
+
         // Import necessary Windows API functions
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImport("gdi32")]
-        private static extern IntPtr CreateEllipticRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect);
-        [DllImport("dwmapi")]
-        private static extern int DwmEnableBlurBehindWindow(IntPtr hWnd, ref DwmBlurbehind pBlurBehind);
+
         // Constant values for window dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
@@ -45,7 +44,7 @@ namespace LFGMain
             ResetOverlays();
 
             // Load the previously selected box
-            string selectedBoxName = LFGMainWindow.Properties.Settings.Default.selectedBox;
+            string selectedBoxName = GGLoader.Properties.Settings.Default.selectedBox;
             if (!string.IsNullOrEmpty(selectedBoxName) && selectedBoxName != "None")
             {
                 // Find the corresponding control (box) by name
@@ -57,7 +56,6 @@ namespace LFGMain
                 }
             }
         }
-
         private static void AddOverlay(Control parentControl, ref Panel overlayField)
         {
             Panel overlay = new Panel
@@ -132,8 +130,8 @@ namespace LFGMain
             // If the same box is clicked again, undim all boxes
             if (activeBox == clickedBox)
             {
-                LFGMainWindow.Properties.Settings.Default.selectedBox = "None";
-                LFGMainWindow.Properties.Settings.Default.Save();
+                GGLoader.Properties.Settings.Default.selectedBox = "None";
+                GGLoader.Properties.Settings.Default.Save();
 
                 // Undim all boxes
                 ResetOverlays();
@@ -142,8 +140,8 @@ namespace LFGMain
             else
             {
                 // If a new box is clicked, dim the others and undim the clicked one
-                LFGMainWindow.Properties.Settings.Default.selectedBox = clickedBox.Name;
-                LFGMainWindow.Properties.Settings.Default.Save();
+                GGLoader.Properties.Settings.Default.selectedBox = clickedBox.Name;
+                GGLoader.Properties.Settings.Default.Save();
 
                 DimOtherBoxes(clickedBox);
                 activeBox = clickedBox; // Set the clicked box as the active one
@@ -189,7 +187,7 @@ namespace LFGMain
 
         private void InstallPlay_Click(object sender, EventArgs e)
         {
-            string selectedBoxName = LFGMainWindow.Properties.Settings.Default.selectedBox;
+            string selectedBoxName = GGLoader.Properties.Settings.Default.selectedBox;
             if (selectedBoxName == "None")
             {
                 installPlay.BackColor = Color.Red;
@@ -197,10 +195,10 @@ namespace LFGMain
                 installPlay.BackColor = Color.SpringGreen;
                 return;
             }
-            var goodCheck = FolderUtilities.CheckFolderExists();
+            var goodCheck = FolderUtilities.CheckFolderExists(selectedBoxName);
             if (goodCheck == true)
             {
-                MessageBox.Show("ayeeee, you got the game installed! ggs lets continue");
+                GameManager.ModThatGame(selectedBoxName);
             }
             else
             {
@@ -208,15 +206,22 @@ namespace LFGMain
             }
         }
 
-        private void LFGLoader_Load(object sender, EventArgs e)
+        public static LFGLoader Instance
         {
-            var hr = CreateEllipticRgn(0, 0, Width, Height);
-            var dbb = new DwmBlurbehind { FEnable = true, DwFlags = 1, HRgnBlur = hr, FTransitionOnMaximized = false };
-            DwmEnableBlurBehindWindow(Handle, ref dbb);
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new LFGLoader();
+                }
+                return _instance;
+            }
         }
-            protected override void OnPaint(PaintEventArgs e)
-    {
-        e.Graphics.FillRectangle(new SolidBrush(Color.Black), new Rectangle(0, 0, Width, Height));
-    }
+        public void UpdateStatusBar(string? p)
+        {
+
+            statusLabel.Text = $"Downloading Files: {p}%";
+
+        }
     }
 }

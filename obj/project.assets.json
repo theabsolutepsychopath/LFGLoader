@@ -15,9 +15,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\akg\\source\\repos\\winformgay\\LFGMainWindow.csproj",
-      "projectName": "LFGMainWindow",
-      "projectPath": "C:\\Users\\akg\\source\\repos\\winformgay\\LFGMainWindow.csproj",
+      "projectUniqueName": "C:\\Users\\akg\\source\\repos\\winformgay\\GGLoader.csproj",
+      "projectName": "GGLoader",
+      "projectPath": "C:\\Users\\akg\\source\\repos\\winformgay\\GGLoader.csproj",
       "packagesPath": "C:\\Users\\akg\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\akg\\source\\repos\\winformgay\\obj\\",
       "projectStyle": "PackageReference",

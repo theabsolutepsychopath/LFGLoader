@@ -4,13 +4,8 @@ C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\LFGMainWindow.de
 C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\LFGMainWindow.runtimeconfig.json
 C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\LFGMainWindow.dll
 C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\LFGMainWindow.pdb
-C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\DirectShowLib.dll
-C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\Vlc.DotNet.Core.dll
-C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\Vlc.DotNet.Core.Interops.dll
-C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\Vlc.DotNet.Forms.dll
 C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\Interop.WMPLib.dll
 C:\Users\akg\source\repos\winformgay\bin\Release\net8.0-windows\AxInterop.WMPLib.dll
-C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\LFGMainWindow.csproj.AssemblyReference.cache
 C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\Interop.WMPLib.dll
 C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\AxInterop.WMPLib.dll
 C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\LFGMainWindow.csproj.ResolveComReference.cache
@@ -23,7 +18,6 @@ C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\LFGMainWindow.As
 C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\LFGMainWindow.AssemblyInfo.cs
 C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\LFGMainWindow.csproj.CoreCompileInputs.cache
 C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\LFGMainWindow.sourcelink.json
-C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\LFGMainW.E144E973.Up2Date
 C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\LFGMainWindow.dll
 C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\refint\LFGMainWindow.dll
 C:\Users\akg\source\repos\winformgay\obj\Release\net8.0-windows\LFGMainWindow.pdb
