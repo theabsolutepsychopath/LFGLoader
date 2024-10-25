@@ -4,10 +4,10 @@
     <_LastSelectedProfileId>C:\Users\akg\source\repos\winformgay\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Settings.cs">
+    <Compile Update="LFGLoader.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LFGLoader.cs">
+    <Compile Update="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

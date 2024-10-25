@@ -198,7 +198,7 @@ namespace LFGMain
             var goodCheck = FolderUtilities.CheckFolderExists(selectedBoxName);
             if (goodCheck == true)
             {
-                GameManager.ModThatGame(selectedBoxName);
+                GameManager.ModThatGameAsync(selectedBoxName);
             }
             else
             {
@@ -206,21 +206,20 @@ namespace LFGMain
             }
         }
 
-        public static LFGLoader Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new LFGLoader();
-                }
-                return _instance;
-            }
-        }
-        public void UpdateStatusBar(string? p)
+        public static void UpdateStatusBar(string? p)
         {
 
-            statusLabel.Text = $"Downloading Files: {p}%";
+                if (statusLabel.InvokeRequired)
+                {
+                   statusLabel.Invoke((MethodInvoker)delegate
+                    {
+                        statusLabel.Text = p;
+                    });
+                }
+                else
+                {
+                    statusLabel.Text = p;
+                }
 
         }
     }

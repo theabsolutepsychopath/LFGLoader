@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing.Text;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Policy;
-using System.Text;
+using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using LFGMain;
 
 namespace LFGMainWindow
 {
     internal class GameManager
     {
-        public static void ModThatGame(string selectedgame)
+        public static async Task ModThatGameAsync(string selectedgame)
         {
             switch (selectedgame)
             {
@@ -26,42 +22,41 @@ namespace LFGMainWindow
                     ModProjectZomboid();
                     break;
                 case "boxRight":
-                    // Mod Minecraft
-                    ModMinecraft();
+                    // Mod Minecraft (asynchronously)
+                    await ModMinecraftAsync();
                     break;
                 default:
                     // No game selected
                     NoGameSelected();
                     break;
             }
-            return;
         }
 
         private static void ModValheim()
         {
-            Console.WriteLine("not fucking making this yet");
+            Console.WriteLine("not making this yet");
         }
 
         private static void ModProjectZomboid()
         {
-            Console.WriteLine("not fucking making this yet");
+            Console.WriteLine("not making this yet");
         }
 
-        private async void ModMinecraft()
+        private static async Task ModMinecraftAsync()
         {
-            MessageBox.Show("lol lets go");
+            MessageBox.Show("Let's go!");
             // Grab the files :)
 
             string fileURL = "http://share.harryeffingpotter.com/u/zgELhC.zip";
             string userdirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string minecraftdir = System.IO.Path.Combine(userdirectory, ".minecraft");
+            string minecraftdir = Path.Combine(userdirectory, ".minecraft");
             string gamename = "minecraftnon";
 
             Progress<int> progress = new Progress<int>(percent =>
             {
-                // Update your UI here, e.g., a label or progress bar
-                string percentnumber = $"{percent}";
-                LFGLoader.UpdateStatusBar(percentnumber);
+                // Update your UI here
+                string percentnumber = $"Downloading... {percent}%";
+                LFGLoader.UpdateStatusBar(percentnumber);  // Call to update the label
             });
 
             await GrabFilesAsync(fileURL, minecraftdir, gamename, progress);
@@ -75,7 +70,7 @@ namespace LFGMainWindow
         private static async Task GrabFilesAsync(string fileURL, string gamedir, string gamename, IProgress<int> progress)
         {
             string appdatadir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string downloadfolder = System.IO.Path.Combine(appdatadir, "GGLoader", "storage", gamename);
+            string downloadfolder = Path.Combine(appdatadir, "GGLoader", "storage", gamename);
 
             if (!Directory.Exists(downloadfolder))
             {
@@ -137,10 +132,11 @@ namespace LFGMainWindow
                 }
             }
         }
+
         private static string GetFileNameFromUrl(string url)
         {
             Uri uri = new Uri(url);
-            return System.IO.Path.GetFileName(uri.LocalPath);
+            return Path.GetFileName(uri.LocalPath);
         }
     }
 }
