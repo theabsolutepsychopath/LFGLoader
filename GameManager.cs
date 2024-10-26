@@ -23,6 +23,7 @@ namespace LFGMainWindow
                     break;
                 case "boxRight":
                     // Mod Minecraft (asynchronously)
+                    FolderUtilities.GetSelectedBox(selectedgame);
                     await ModMinecraftAsync();
                     break;
                 default:
@@ -47,7 +48,7 @@ namespace LFGMainWindow
             MessageBox.Show("Let's go!");
             // Grab the files :)
 
-            string fileURL = "http://share.harryeffingpotter.com/u/zgELhC.zip";
+            string fileURL = "http://share.harryeffingpotter.com/u/rQ4ACD.jpg";
             string userdirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string minecraftdir = Path.Combine(userdirectory, ".minecraft");
             string gamename = "minecraftnon";
@@ -60,6 +61,9 @@ namespace LFGMainWindow
             });
 
             await GrabFilesAsync(fileURL, minecraftdir, gamename, progress);
+
+            await Task.Delay(100);
+            LFGLoader.ResetStatusbar(); // Reset the status bar
         }
 
         private static void NoGameSelected()
@@ -81,55 +85,84 @@ namespace LFGMainWindow
             {
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync(fileURL);
-                    response.EnsureSuccessStatusCode();
-
-                    var totalBytes = response.Content.Headers.ContentLength ?? -1L;
-                    var canReportProgress = totalBytes != -1 && progress != null;
-
-                    using (var contentStream = await response.Content.ReadAsStreamAsync())
+                    using (HttpResponseMessage response = await client.GetAsync(fileURL, HttpCompletionOption.ResponseHeadersRead))
                     {
-                        var fileName = GetFileNameFromUrl(fileURL);
-                        var filePath = Path.Combine(downloadfolder, fileName);
+                        response.EnsureSuccessStatusCode();
 
-                        using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None, 8192, true))
+                        var totalBytes = response.Content.Headers.ContentLength ?? -1L;
+                        var canReportProgress = totalBytes != -1 && progress != null;
+
+                        using (var contentStream = await response.Content.ReadAsStreamAsync())
                         {
-                            var totalRead = 0L;
-                            var buffer = new byte[8192];
-                            var isMoreToRead = true;
+                            var fileName = GetFileNameFromUrl(fileURL);
+                            var filePath = Path.Combine(downloadfolder, fileName);
 
-                            do
+                            using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None, 1048576, true)) // Buffer size: 1MB
                             {
-                                var read = await contentStream.ReadAsync(buffer, 0, buffer.Length);
-                                if (read == 0)
+                                var totalRead = 0L;
+                                var buffer = new byte[1048576]; // 1MB buffer for large files.
+                                var isMoreToRead = true;
+
+                                do
                                 {
-                                    isMoreToRead = false;
-                                    progress?.Report(100);
-                                    continue;
+                                    var read = await contentStream.ReadAsync(buffer, 0, buffer.Length);
+                                    if (read == 0)
+                                    {
+                                        isMoreToRead = false;
+                                        progress?.Report(100); // Report 100% completion when done.
+                                        continue;
+                                    }
+
+                                    await fileStream.WriteAsync(buffer, 0, read);
+
+                                    totalRead += read;
+
+                                    if (canReportProgress)
+                                    {
+                                        var percentComplete = (int)((totalRead * 1d) / (totalBytes * 1d) * 100);
+                                        progress?.Report(percentComplete); // Report progress.
+                                    }
                                 }
-
-                                await fileStream.WriteAsync(buffer, 0, read);
-
-                                totalRead += read;
-
-                                if (canReportProgress)
-                                {
-                                    var percentComplete = (int)((totalRead * 1d) / (totalBytes * 1d) * 100);
-                                    progress?.Report(percentComplete);
-                                }
+                                while (isMoreToRead);
                             }
-                            while (isMoreToRead);
                         }
                     }
                 }
                 catch (HttpRequestException e)
                 {
                     Console.WriteLine($"Request exception: {e.Message}");
+                    CleanUpIncompleteFiles(downloadfolder);
                 }
                 catch (UnauthorizedAccessException ex)
                 {
                     Console.WriteLine($"Access Denied: {ex.Message}");
+                    CleanUpIncompleteFiles(downloadfolder);
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    CleanUpIncompleteFiles(downloadfolder);
+                }
+            }
+        }
+
+
+        private static void CleanUpIncompleteFiles(string folderPath)
+        {
+            try
+            {
+                if (Directory.Exists(folderPath))
+                {
+                    // Optionally delete the folder itself or delete any partial files inside
+                    foreach (var file in Directory.GetFiles(folderPath))
+                    {
+                        File.Delete(file); // Delete all files inside the folder
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error cleaning up incomplete files: {ex.Message}");
             }
         }
 

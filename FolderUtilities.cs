@@ -52,5 +52,10 @@ namespace LFGMainWindow
             }
             return true;
         }
+
+        public static void ChooseFolder()
+        {
+            
+        }
     }
 }

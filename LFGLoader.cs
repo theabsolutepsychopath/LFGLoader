@@ -222,5 +222,23 @@ namespace LFGMain
                 }
 
         }
+
+        public static void ResetStatusbar()
+        {
+            if (statusLabel.InvokeRequired)
+            {
+                statusLabel.Invoke((MethodInvoker)delegate
+                {
+                    statusLabel.Text = "Nothing is happening. Try launching or installing a game!";
+                    statusLabel.Refresh();
+                });
+            }
+            else
+            {
+                statusLabel.Text = "Nothing is happening. Try launching or installing a game!";
+                statusLabel.Refresh();
+            }
+        }
+
     }
 }
