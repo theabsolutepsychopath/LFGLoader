@@ -9,37 +9,33 @@ namespace LFGMainWindow
     public class FolderUtilities
     {
        // 55 CHEESE BURGERS 55 FRIES
-        public static string GetSelectedBox()
+        public static string GetSelectedBox(string selectedBoxName)
         {
-            string selectedBoxName = LFGMainWindow.Properties.Settings.Default.selectedBox;
             string FolderPath = "this broke please fix";
             if ( selectedBoxName == "None")
             {
-                Console.WriteLine("No box selected, how are you even seeing this error?");
+                MessageBox.Show("No box selected, how are you even seeing this error?");
             }
             else
             {
-                Console.WriteLine("Box selected: " + selectedBoxName);
+                MessageBox.Show("Box selected: " + selectedBoxName);
                 switch (selectedBoxName)
                 {
                     case "boxLeft":
-                        Console.WriteLine("Box Left selected");
                         FolderPath = "C:\\Program Files (x86)\\steam\\steamapps\\common\\Valheim\\";
                         break;
                     case "boxMiddle":
-                        Console.WriteLine("Box Middle selected");
                         FolderPath = "C:\\Program Files (x86)\\steam\\steamapps\\common\\ProjectZomboid\\";
                         break;
                     case "boxRight":
-                        Console.WriteLine("Box Right selected");
                         string userDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                         FolderPath = System.IO.Path.Combine(userDirectory, ".minecraft");
                         break;
                     default:
-                        Console.WriteLine("No box selected, how are you even seeing this error?");
+                        MessageBox.Show("No box selected, how are you even seeing this error?");
                         break;
                     case null:
-                        Console.WriteLine("No box detected?!?!?!?, how are you even seeing this error?");
+                        MessageBox.Show("No box detected?!?!?!?, how are you even seeing this error?");
                         break;
                 }
             }
@@ -47,14 +43,19 @@ namespace LFGMainWindow
             return FolderPath;
         }
 
-        public static bool CheckFolderExists()
+        public static bool CheckFolderExists(string selectedBoxName)
         {
-            string FolderPath = GetSelectedBox();
+            string FolderPath = GetSelectedBox(selectedBoxName);
             if (!System.IO.Directory.Exists(FolderPath))
             {
                 return false;
             }
             return true;
+        }
+
+        public static void ChooseFolder()
+        {
+            
         }
     }
 }

@@ -21,8 +21,6 @@ namespace LFGSettings
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LFGMainWindow.Properties.Settings.Default.GayReference = checkBox1.Checked;
-            LFGMainWindow.Properties.Settings.Default.Save();
             this.Close();
         }
 
