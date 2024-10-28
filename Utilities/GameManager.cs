@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -35,21 +36,27 @@ namespace LFGLoader.Utilities
         }
         private async Task DownloadGameAsync(string gamePath, string gamename)
         {
-            IProgress<int> progress = new Progress<int>(percent =>
+            IProgress<(int percent, double speed)> progress = new Progress<(int percent, double speed)>(progressData =>
             {
-                LFGLoader.Instance.UpdateStatusBar($"Downloading... {percent}%");
+                var (percent, speed) = progressData;
+                LFGLoader.Instance.UpdateStatusBar($"Downloading... {percent}% {FormatSpeed(speed)}");
             });
+
             var fileURL = GetGameUrl(gamename);
             int lastIndex = fileURL.LastIndexOf('/');
             string filename = fileURL.Substring(lastIndex + 1);
             string appdatadir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filepath = Path.Combine(appdatadir, "LFGLoader", "storage", gamename, filename);
+
+
             // TODO: EXTRACT FILEPATH INTO DIRECTORY THEN SUPPLY THAT TO RUNADMINHELPER INSTEAD
+
             if (await GrabFilesAsync(fileURL, gamename, progress))
             {
                 LFGLoader.Instance.UpdateStatusBar("Download complete... verifying file integrity.");
                 var folderUtilities = new FolderUtilities();
                 bool isMatch = await FolderUtilities.MD5FileCheckAsync(filepath, "7fc272addc955c0b208f85b9611bdced"); // this needs to be pulled from github or some shit
+                
                 if (!isMatch)
                 {
                     LFGLoader.Instance.UpdateStatusBar("Download failed.");
@@ -57,11 +64,13 @@ namespace LFGLoader.Utilities
                     LFGLoader.Instance.ResetStatusbar();
                     return;
                 }
+
                 LFGLoader.Instance.UpdateStatusBar("Download complete... moving files.");
                 var modPath = GetGameModPath(gamename, gamePath);
                 AdminHelperCreator.RunAdminHelper(modPath, filepath);
                 // TODO: Move files
             }
+
             else
             {
                 LFGLoader.Instance.UpdateStatusBar("Download failed.");
@@ -69,6 +78,18 @@ namespace LFGLoader.Utilities
             await Task.Delay(3000);
             LFGLoader.Instance.ResetStatusbar();
         }
+
+
+        private string FormatSpeed(double bytesPerSecond)
+        {
+            if (bytesPerSecond < 1024)
+                return $"{bytesPerSecond:F2} B/s";
+            else if (bytesPerSecond < 1024 * 1024)
+                return $"{bytesPerSecond / 1024:F2} KB/s";
+            else
+                return $"{bytesPerSecond / (1024 * 1024):F2} MB/s";
+        }
+
 
         private static string GetGameModPath(string gamename, string gamepath)
         {
@@ -96,7 +117,7 @@ namespace LFGLoader.Utilities
             MessageBox.Show("You must select a game to mod");
         }
 
-        private async Task<bool> GrabFilesAsync(string fileURL, string gamename, IProgress<int> progress)
+        private async Task<bool> GrabFilesAsync(string fileURL, string gamename, IProgress<(int percent, double speed)> progress)
         {
             string appdatadir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string downloadfolder = Path.Combine(appdatadir, "LFGLoader", "storage", gamename);
@@ -122,6 +143,7 @@ namespace LFGLoader.Utilities
                 using var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None, 1048576, true); // Buffer size: 1MB
                 var totalRead = 0L;
                 var buffer = new byte[1048576]; // 1MB buffer for large files.
+                var stopwatch = Stopwatch.StartNew();
                 var isMoreToRead = true;
 
                 do
@@ -130,7 +152,8 @@ namespace LFGLoader.Utilities
                     if (read == 0)
                     {
                         isMoreToRead = false;
-                        progress?.Report(100); // Report 100% completion when done.
+                        double speed = totalRead / stopwatch.Elapsed.TotalSeconds;
+                        progress?.Report((100, speed)); // Report 100% completion when done.
                         continue;
                     }
 
@@ -141,7 +164,8 @@ namespace LFGLoader.Utilities
                     if (canReportProgress)
                     {
                         var percentComplete = (int)((totalRead * 1d) / (totalBytes * 1d) * 100);
-                        progress?.Report(percentComplete); // Report progress.
+                        double speed = totalRead / stopwatch.Elapsed.TotalSeconds;
+                        progress?.Report((percentComplete, speed)); // Report progress.
                     }
                 }
                 while (isMoreToRead);

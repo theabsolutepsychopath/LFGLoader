@@ -37,17 +37,26 @@ namespace LFGLoader.Utilities
 
             if (selectedGame == "minecraft")
             {
-                string defaultMinecraftModFolder = $"{Environment.SpecialFolder.ApplicationData}\\.minecraft";
-                if (Directory.Exists(defaultMinecraftModFolder))
+                if (Properties.Settings.Default.minecraftDir == "")
                 {
-                    return defaultMinecraftModFolder;
+                    string defaultMinecraftModFolder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\.minecraft";
+                    if (Directory.Exists(defaultMinecraftModFolder))
+                    {
+                        Properties.Settings.Default.minecraftDir = defaultMinecraftModFolder;
+                        return defaultMinecraftModFolder;
+                    }
+                    folderbrowser.InitialDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}";
+                    folderbrowser.Description = "Locate your \".minecraft\" folder.";
+                    DialogResult result = folderbrowser.ShowDialog();
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderbrowser.SelectedPath))
+                    {
+                        Properties.Settings.Default.minecraftDir = folderbrowser.SelectedPath.EndsWith("\\.minecraft") ? folderbrowser.SelectedPath : "";
+                        return folderbrowser.SelectedPath.EndsWith("\\.minecraft") ? folderbrowser.SelectedPath : "";
+                    }
                 }
-                folderbrowser.InitialDirectory = $"{Environment.SpecialFolder.ApplicationData}";
-                folderbrowser.Description = "Locate your \".minecraft\" folder.";
-                DialogResult result = folderbrowser.ShowDialog();
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderbrowser.SelectedPath))
+                else
                 {
-                    return folderbrowser.SelectedPath.EndsWith("\\.minecraft") ? folderbrowser.SelectedPath : "";
+                    return Properties.Settings.Default.minecraftDir;
                 }
             }
             else if (selectedGame == "valheim")

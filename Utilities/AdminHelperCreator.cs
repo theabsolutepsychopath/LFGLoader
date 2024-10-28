@@ -68,7 +68,7 @@ namespace LFGLoader
 
             // Add necessary references
             compilerParameters.ReferencedAssemblies.Add("System.dll");
-            compilerParameters.ReferencedAssemblies.Add("System.Windows.Forms.dll");
+            compilerParameters.ReferencedAssemblies.Add("System.Windows.Forms.dll"); // my fucking mom woke up somehow 
 
             // Compile the code
             CompilerResults results = codeProvider.CompileAssemblyFromSource(compilerParameters, helperCode);
