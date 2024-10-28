@@ -37,7 +37,7 @@ namespace LFGLoader.Utilities
 
             if (selectedGame == "minecraft")
             {
-                if (Properties.Settings.Default.minecraftDir == "")
+                if (Properties.Settings.Default.minecraftDir == "not initalized")
                 {
                     string defaultMinecraftModFolder = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\.minecraft";
                     if (Directory.Exists(defaultMinecraftModFolder))

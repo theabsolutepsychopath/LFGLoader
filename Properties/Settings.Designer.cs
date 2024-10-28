@@ -49,7 +49,7 @@ namespace LFGLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("not initalized")]
         public string minecraftDir {
             get {
                 return ((string)(this["minecraftDir"]));
@@ -61,7 +61,7 @@ namespace LFGLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("not initalized")]
         public string zomboidDir {
             get {
                 return ((string)(this["zomboidDir"]));
@@ -73,7 +73,7 @@ namespace LFGLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("not initalized")]
         public string valheimDir {
             get {
                 return ((string)(this["valheimDir"]));

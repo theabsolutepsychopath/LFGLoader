@@ -57,15 +57,6 @@ namespace LFGLoader
                     DimOtherBoxes(selectedBox);  // Ensure only other boxes are dimmed
                 }
             }
-
-            string minecraftDirCheck = Properties.Settings.Default.minecraftDir;
-            if (string.IsNullOrEmpty(minecraftDirCheck))
-            {
-                string appdata = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-                string minecraftDir = $"{appdata}\\.minecraft\\";
-                Properties.Settings.Default.minecraftDir = minecraftDir;
-            }
-
         }
         private static void AddOverlay(Control parentControl, ref Panel overlayField)
         {

@@ -9,13 +9,13 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="minecraftDir" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">not initalized</Value>
     </Setting>
     <Setting Name="zomboidDir" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">not initalized</Value>
     </Setting>
     <Setting Name="valheimDir" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">not initalized</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -96,7 +96,7 @@ namespace LFGLoader
             close.FlatStyle = FlatStyle.Flat;
             close.Font = new Font("ProFont IIx Nerd Font", 14F);
             close.ForeColor = SystemColors.ControlText;
-            close.Location = new Point(897, -4);
+            close.Location = new Point(892, 0);
             close.Name = "close";
             close.Size = new Size(35, 35);
             close.TabIndex = 7;
