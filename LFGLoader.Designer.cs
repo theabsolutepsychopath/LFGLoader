@@ -1,5 +1,5 @@
 ﻿
-namespace LFGMain
+namespace LFGLoader
 {
     partial class LFGLoader
     {
@@ -32,16 +32,16 @@ namespace LFGMain
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LFGLoader));
             vrMode = new CheckBox();
             installPlay = new Button();
-            boxMiddle = new PictureBox();
+            projectzomboid = new PictureBox();
             close = new Button();
-            boxLeft = new PictureBox();
+            valheim = new PictureBox();
             SettingsButtonMain = new Button();
             statusLabel = new Label();
             LFGText = new Label();
-            boxRight = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)boxMiddle).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)boxLeft).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)boxRight).BeginInit();
+            minecraft = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)projectzomboid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)valheim).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)minecraft).BeginInit();
             SuspendLayout();
             // 
             // vrMode
@@ -75,18 +75,18 @@ namespace LFGMain
             installPlay.UseVisualStyleBackColor = false;
             installPlay.Click += InstallPlay_Click;
             // 
-            // boxMiddle
+            // projectzomboid
             // 
-            boxMiddle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            boxMiddle.BackColor = SystemColors.ActiveCaptionText;
-            boxMiddle.Image = GGLoader.Properties.Resources.library_600x900;
-            boxMiddle.Location = new Point(340, 124);
-            boxMiddle.Name = "boxMiddle";
-            boxMiddle.Size = new Size(246, 432);
-            boxMiddle.SizeMode = PictureBoxSizeMode.StretchImage;
-            boxMiddle.TabIndex = 4;
-            boxMiddle.TabStop = false;
-            boxMiddle.Click += BoxMiddle_Click;
+            projectzomboid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            projectzomboid.BackColor = SystemColors.ActiveCaptionText;
+            projectzomboid.Image = Properties.Resources.library_600x900;
+            projectzomboid.Location = new Point(340, 124);
+            projectzomboid.Name = "projectzomboid";
+            projectzomboid.Size = new Size(246, 432);
+            projectzomboid.SizeMode = PictureBoxSizeMode.StretchImage;
+            projectzomboid.TabIndex = 4;
+            projectzomboid.TabStop = false;
+            projectzomboid.Click += BoxMiddle_Click;
             // 
             // close
             // 
@@ -104,17 +104,17 @@ namespace LFGMain
             close.UseVisualStyleBackColor = false;
             close.Click += Close_Click;
             // 
-            // boxLeft
+            // valheim
             // 
-            boxLeft.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            boxLeft.Image = GGLoader.Properties.Resources._5dea59a6a24c400fac4fbb4606eb865a;
-            boxLeft.Location = new Point(89, 124);
-            boxLeft.Name = "boxLeft";
-            boxLeft.Size = new Size(246, 432);
-            boxLeft.SizeMode = PictureBoxSizeMode.StretchImage;
-            boxLeft.TabIndex = 10;
-            boxLeft.TabStop = false;
-            boxLeft.Click += BoxLeft_Click;
+            valheim.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            valheim.Image = Properties.Resources._5dea59a6a24c400fac4fbb4606eb865a;
+            valheim.Location = new Point(89, 124);
+            valheim.Name = "valheim";
+            valheim.Size = new Size(246, 432);
+            valheim.SizeMode = PictureBoxSizeMode.StretchImage;
+            valheim.TabIndex = 10;
+            valheim.TabStop = false;
+            valheim.Click += BoxLeft_Click;
             // 
             // SettingsButtonMain
             // 
@@ -136,13 +136,13 @@ namespace LFGMain
             // statusLabel
             // 
             statusLabel.Anchor = AnchorStyles.Bottom;
-            statusLabel.AutoSize = true;
+            statusLabel.Font = new Font("ProFont IIx Nerd Font", 12F);
             statusLabel.ForeColor = SystemColors.ControlLightLight;
-            statusLabel.Location = new Point(256, 650);
+            statusLabel.Location = new Point(145, 646);
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(414, 15);
+            statusLabel.Size = new Size(636, 32);
             statusLabel.TabIndex = 14;
-            statusLabel.Text = "Nothing is happening. Try launching or installing a game!";
+            statusLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // LFGText
             // 
@@ -156,17 +156,17 @@ namespace LFGMain
             LFGText.Text = "SELECT YOUR GAME";
             LFGText.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // boxRight
+            // minecraft
             // 
-            boxRight.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            boxRight.Image = GGLoader.Properties.Resources.wallpaper_minecraft_pc_bundle_1080x1920;
-            boxRight.Location = new Point(591, 124);
-            boxRight.Name = "boxRight";
-            boxRight.Size = new Size(246, 432);
-            boxRight.SizeMode = PictureBoxSizeMode.StretchImage;
-            boxRight.TabIndex = 9;
-            boxRight.TabStop = false;
-            boxRight.Click += BoxRight_Click;
+            minecraft.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            minecraft.Image = Properties.Resources.wallpaper_minecraft_pc_bundle_1080x1920;
+            minecraft.Location = new Point(591, 124);
+            minecraft.Name = "minecraft";
+            minecraft.Size = new Size(246, 432);
+            minecraft.SizeMode = PictureBoxSizeMode.StretchImage;
+            minecraft.TabIndex = 9;
+            minecraft.TabStop = false;
+            minecraft.Click += BoxRight_Click;
             // 
             // LFGLoader
             // 
@@ -174,13 +174,13 @@ namespace LFGMain
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(927, 681);
-            Controls.Add(boxLeft);
+            Controls.Add(valheim);
             Controls.Add(LFGText);
             Controls.Add(statusLabel);
             Controls.Add(SettingsButtonMain);
-            Controls.Add(boxRight);
+            Controls.Add(minecraft);
             Controls.Add(close);
-            Controls.Add(boxMiddle);
+            Controls.Add(projectzomboid);
             Controls.Add(installPlay);
             Controls.Add(vrMode);
             Font = new Font("ProFont IIx Nerd Font", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -188,11 +188,11 @@ namespace LFGMain
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LFGLoader";
             Opacity = 0.98D;
-            Text = "GGLoader";
+            Text = "LFGLoader";
             MouseDown += LFGLoader_MouseDown;
-            ((System.ComponentModel.ISupportInitialize)boxMiddle).EndInit();
-            ((System.ComponentModel.ISupportInitialize)boxLeft).EndInit();
-            ((System.ComponentModel.ISupportInitialize)boxRight).EndInit();
+            ((System.ComponentModel.ISupportInitialize)projectzomboid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)valheim).EndInit();
+            ((System.ComponentModel.ISupportInitialize)minecraft).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -205,9 +205,9 @@ namespace LFGMain
         private Button close;
         private Button SettingsButtonMain;
         private Label LFGText;
-        public PictureBox boxMiddle;
-        public PictureBox boxRight;
-        public PictureBox boxLeft;
-        public static Label statusLabel;
+        public PictureBox projectzomboid;
+        public PictureBox minecraft;
+        public PictureBox valheim;
+        public Label statusLabel;
     }
 }

@@ -1,4 +1,4 @@
-namespace LFGMain
+namespace LFGLoader
 {
     internal static class Program
     {

@@ -4,13 +4,15 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Drawing;
 using LFGSettings;
-using LFGMainWindow;
+using LFGLoader.Utilities;
 
-namespace LFGMain
+namespace LFGLoader
 {
     public partial class LFGLoader : Form
     {
-        
+        private static LFGLoader? _instance;
+        public static LFGLoader Instance => _instance ??= new LFGLoader();
+
 
         // Import necessary Windows API functions
         [DllImport("user32.dll")]
@@ -33,18 +35,18 @@ namespace LFGMain
 
         public LFGLoader()
         {
+            _instance ??= this; // Ensure only one instance is set
             InitializeComponent();
-
             // Add semi-transparent overlays to the PictureBoxes and store them
-            AddOverlay(boxLeft, ref overlayLeft);
-            AddOverlay(boxMiddle, ref overlayMiddle);
-            AddOverlay(boxRight, ref overlayRight);
+            AddOverlay(valheim, ref overlayLeft);
+            AddOverlay(projectzomboid, ref overlayMiddle);
+            AddOverlay(minecraft, ref overlayRight);
 
             // Reset all overlays first (make sure no box starts dimmed by default)
             ResetOverlays();
 
             // Load the previously selected box
-            string selectedBoxName = GGLoader.Properties.Settings.Default.selectedBox;
+            string selectedBoxName = Properties.Settings.Default.selectedBox;
             if (!string.IsNullOrEmpty(selectedBoxName) && selectedBoxName != "None")
             {
                 // Find the corresponding control (box) by name
@@ -55,6 +57,15 @@ namespace LFGMain
                     DimOtherBoxes(selectedBox);  // Ensure only other boxes are dimmed
                 }
             }
+
+            string minecraftDirCheck = Properties.Settings.Default.minecraftDir;
+            if (string.IsNullOrEmpty(minecraftDirCheck))
+            {
+                string appdata = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string minecraftDir = $"{appdata}\\.minecraft\\";
+                Properties.Settings.Default.minecraftDir = minecraftDir;
+            }
+
         }
         private static void AddOverlay(Control parentControl, ref Panel overlayField)
         {
@@ -109,15 +120,15 @@ namespace LFGMain
             // Dim all other boxes, but undim the clicked one
             ResetOverlays();  // Start by undimming all boxes
 
-            if (clickedBox != boxLeft)
+            if (clickedBox != valheim)
             {
                 ShowOverlay(overlayLeft);
             }
-            if (clickedBox != boxMiddle)
+            if (clickedBox != projectzomboid)
             {
                 ShowOverlay(overlayMiddle);
             }
-            if (clickedBox != boxRight)
+            if (clickedBox != minecraft)
             {
                 ShowOverlay(overlayRight);
             }
@@ -130,8 +141,8 @@ namespace LFGMain
             // If the same box is clicked again, undim all boxes
             if (activeBox == clickedBox)
             {
-                GGLoader.Properties.Settings.Default.selectedBox = "None";
-                GGLoader.Properties.Settings.Default.Save();
+                Properties.Settings.Default.selectedBox = "None";
+                Properties.Settings.Default.Save();
 
                 // Undim all boxes
                 ResetOverlays();
@@ -140,8 +151,8 @@ namespace LFGMain
             else
             {
                 // If a new box is clicked, dim the others and undim the clicked one
-                GGLoader.Properties.Settings.Default.selectedBox = clickedBox.Name;
-                GGLoader.Properties.Settings.Default.Save();
+                Properties.Settings.Default.selectedBox = clickedBox.Name;
+                Properties.Settings.Default.Save();
 
                 DimOtherBoxes(clickedBox);
                 activeBox = clickedBox; // Set the clicked box as the active one
@@ -185,9 +196,9 @@ namespace LFGMain
             Box_Click(sender, e);
         }
 
-        private void InstallPlay_Click(object sender, EventArgs e)
+        private async void InstallPlay_Click(object sender, EventArgs e)
         {
-            string selectedBoxName = GGLoader.Properties.Settings.Default.selectedBox;
+            string selectedBoxName = Properties.Settings.Default.selectedBox;
             if (selectedBoxName == "None")
             {
                 installPlay.BackColor = Color.Red;
@@ -195,47 +206,41 @@ namespace LFGMain
                 installPlay.BackColor = Color.SpringGreen;
                 return;
             }
-            var goodCheck = FolderUtilities.CheckFolderExists(selectedBoxName);
-            if (goodCheck == true)
-            {
-                GameManager.ModThatGameAsync(selectedBoxName);
-            }
-            else
-            {
-                MessageBox.Show("bitch, why are you trying to install mods for a game you dont have installed? go install the game. smh my head");
-            }
-        }
-
-        public static void UpdateStatusBar(string? p)
-        {
-
-                if (statusLabel.InvokeRequired)
-                {
-                   statusLabel.Invoke((MethodInvoker)delegate
-                    {
-                        statusLabel.Text = p;
-                    });
-                }
-                else
-                {
-                    statusLabel.Text = p;
-                }
+            var gameManager = new GameManager();
+            await gameManager.ModGameAsync(selectedBoxName);
 
         }
 
-        public static void ResetStatusbar()
+        public void UpdateStatusBar(string? p)
         {
             if (statusLabel.InvokeRequired)
             {
                 statusLabel.Invoke((MethodInvoker)delegate
                 {
-                    statusLabel.Text = "Nothing is happening. Try launching or installing a game!";
+                    statusLabel.Text = p;
                     statusLabel.Refresh();
                 });
             }
             else
             {
-                statusLabel.Text = "Nothing is happening. Try launching or installing a game!";
+                statusLabel.Text = p;
+                statusLabel.Refresh();
+            }
+        }
+
+        public void ResetStatusbar()
+        {
+            if (statusLabel.InvokeRequired)
+            {
+                statusLabel.Invoke((MethodInvoker)delegate
+                {
+                    statusLabel.Text = "";
+                    statusLabel.Refresh();
+                });
+            }
+            else
+            {
+                statusLabel.Text = "";
                 statusLabel.Refresh();
             }
         }

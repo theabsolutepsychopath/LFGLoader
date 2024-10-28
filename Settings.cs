@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LFGMain;
-using LFGMainWindow;
+using LFGLoader;
 
 namespace LFGSettings
 {

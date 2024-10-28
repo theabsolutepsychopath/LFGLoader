@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GGLoader {
+namespace LFGLoader {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

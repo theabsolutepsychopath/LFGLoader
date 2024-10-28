@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GGLoader.Properties {
+namespace LFGLoader.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,7 +25,7 @@ namespace GGLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string selectedBox {
             get {
                 return ((string)(this["selectedBox"]));
@@ -44,6 +44,42 @@ namespace GGLoader.Properties {
             }
             set {
                 this["GayReference"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string minecraftDir {
+            get {
+                return ((string)(this["minecraftDir"]));
+            }
+            set {
+                this["minecraftDir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string zomboidDir {
+            get {
+                return ((string)(this["zomboidDir"]));
+            }
+            set {
+                this["zomboidDir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string valheimDir {
+            get {
+                return ((string)(this["valheimDir"]));
+            }
+            set {
+                this["valheimDir"] = value;
             }
         }
     }
