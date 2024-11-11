@@ -36,6 +36,16 @@ namespace LFGSettings
             LFGLoader.Properties.Settings.Default.minecraftDir = "not initalized";
             minecraftdirbox.Text = "not initalized";
         }
+        private void valheimclear_Click(object sender, EventArgs e)
+        {
+            LFGLoader.Properties.Settings.Default.valheimDir = "not initalized";
+            valheimdirbox.Text = "not initalized";
+        }
+        private void zomboidclear_Click(object sender, EventArgs e)
+        {
+            LFGLoader.Properties.Settings.Default.zomboidDir = "not initalized";
+            zomboiddirbox.Text = "not initalized";
+        }
 
         private void minecraftbrowse_Click(object sender, EventArgs e)
         {
@@ -54,6 +64,68 @@ namespace LFGSettings
                         LFGLoader.Properties.Settings.Default.minecraftDir = folderbrowser.SelectedPath.EndsWith("\\.minecraft") ? folderbrowser.SelectedPath : "";
                         LFGLoader.Properties.Settings.Default.Save();
                         minecraftdirbox.Text = folderbrowser.SelectedPath.EndsWith("\\.minecraft") ? folderbrowser.SelectedPath : "";
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("You need to select the correct folder.");
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        private void valheimbrowse_Click(object sender, EventArgs e)
+        {
+            using FolderBrowserDialog folderbrowser = new();
+            folderbrowser.ShowNewFolderButton = false;
+            folderbrowser.Description = "Locate your Valheim folder.";
+            folderbrowser.SelectedPath = "C:\\Program Files (x86)\\Steam\\steamapps\\common";
+
+            while (true)
+            {
+                DialogResult result = folderbrowser.ShowDialog();
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderbrowser.SelectedPath))
+                {
+                    if (folderbrowser.SelectedPath.Contains("Valheim"))
+                    {
+                        LFGLoader.Properties.Settings.Default.valheimDir = folderbrowser.SelectedPath;
+                        LFGLoader.Properties.Settings.Default.Save();
+                        valheimdirbox.Text = folderbrowser.SelectedPath;
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("You need to select the correct folder.");
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        private void zomboidbrowse_Click(object sender, EventArgs e)
+        {
+            using FolderBrowserDialog folderbrowser = new();
+            folderbrowser.ShowNewFolderButton = false;
+            folderbrowser.Description = "Locate your Project Zomboid folder.";
+            folderbrowser.SelectedPath = "C:\\Program Files (x86)\\Steam\\steamapps\\common";
+
+            while (true)
+            {
+                DialogResult result = folderbrowser.ShowDialog();
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderbrowser.SelectedPath))
+                {
+                    if (folderbrowser.SelectedPath.Contains("ProjectZomboid"))
+                    {
+                        LFGLoader.Properties.Settings.Default.zomboidDir = folderbrowser.SelectedPath;
+                        LFGLoader.Properties.Settings.Default.Save();
+                        zomboiddirbox.Text = folderbrowser.SelectedPath;
                         break;
                     }
                     else

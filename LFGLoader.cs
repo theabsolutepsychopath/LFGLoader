@@ -216,6 +216,7 @@ namespace LFGLoader
             {
                 statusLabel.Text = p;
                 statusLabel.Refresh();
+
             }
         }
 
@@ -236,5 +237,9 @@ namespace LFGLoader
             }
         }
 
+        private void progressBarMain_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

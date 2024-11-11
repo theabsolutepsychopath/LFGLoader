@@ -61,23 +61,56 @@ namespace LFGLoader.Utilities
             }
             else if (selectedGame == "valheim")
             {
-                string valheimDirectory = Path.Combine(steamDirectory, "Valheim");
-                if (Directory.Exists(valheimDirectory))
+                if (Properties.Settings.Default.valheimDir == "not initalized")
                 {
-                    return valheimDirectory;
+                    string defaultValheimModFolder = Path.Combine(steamDirectory, "Valheim");
+                    if (Directory.Exists(defaultValheimModFolder))
+                    {
+                        Properties.Settings.Default.valheimDir = defaultValheimModFolder;
+                        return defaultValheimModFolder;
+                    }
+                    folderbrowser.Description = "Locate your Valheim folder.";
+                    folderbrowser.SelectedPath = steamDirectory;
+                    DialogResult result = folderbrowser.ShowDialog();
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderbrowser.SelectedPath))
+                    {
+                        if (folderbrowser.SelectedPath.Contains("Valheim"))
+                        {
+                            Properties.Settings.Default.valheimDir = folderbrowser.SelectedPath;
+                            return folderbrowser.SelectedPath;
+                        }
+                    }
                 }
-                MessageBox.Show("Couldn't find your Valheim Installation. Please locate it manually.");
-                return SelectExecutable(filebrowser, steamDirectory, "Valheim.exe");
+                else
+                {
+                    return Properties.Settings.Default.valheimDir;
+                }
             }
             else if (selectedGame == "projectzomboid")
             {
-                string projectZomboidDirectory = Path.Combine(steamDirectory, "ProjectZomboid");
-                if (Directory.Exists(projectZomboidDirectory))
+                if (Properties.Settings.Default.zomboidDir == "not initalized")
                 {
-                    return projectZomboidDirectory;
+                    string projectZomboidDirectory = Path.Combine(steamDirectory, "ProjectZomboid");
+                    if (Directory.Exists(projectZomboidDirectory))
+                    {
+                        return projectZomboidDirectory;
+                    }
+                    folderbrowser.Description = "Locate your Valheim folder.";
+                    folderbrowser.SelectedPath = steamDirectory;
+                    DialogResult result = folderbrowser.ShowDialog();
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderbrowser.SelectedPath))
+                    {
+                        if (folderbrowser.SelectedPath.Contains("ProjectZomboid"))
+                        {
+                            Properties.Settings.Default.zomboidDir = folderbrowser.SelectedPath;
+                            return folderbrowser.SelectedPath;
+                        }
+                    }
                 }
-                MessageBox.Show("Couldn't find your Project Zomboid Installation. Please locate it manually.");
-                return SelectExecutable(filebrowser, steamDirectory, "ProjectZomboid64.exe");
+                else
+                {
+                    return Properties.Settings.Default.zomboidDir;
+                }
             }
             return "";
         }

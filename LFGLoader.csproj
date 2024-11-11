@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
+    <PackageReference Include="ReaLTaiizor" Version="3.8.0.7" />
     <PackageReference Include="SevenZipExtractor" Version="1.0.17" />
   </ItemGroup>
 

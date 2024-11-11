@@ -39,6 +39,8 @@ namespace LFGLoader.Utilities
             IProgress<(int percent, double speed)> progress = new Progress<(int percent, double speed)>(progressData =>
             {
                 var (percent, speed) = progressData;
+                LFGLoader.Instance.progressBarMain.Progress = percent;
+                LFGLoader.Instance.progressBarMain.Visible = true;
                 LFGLoader.Instance.UpdateStatusBar($"Downloading... {percent}% {FormatSpeed(speed)}");
             });
 
@@ -62,17 +64,22 @@ namespace LFGLoader.Utilities
                     LFGLoader.Instance.UpdateStatusBar("Download failed.");
                     await Task.Delay(3000);
                     LFGLoader.Instance.ResetStatusbar();
+                    LFGLoader.Instance.progressBarMain.Visible = false;
                     return;
                 }
 
                 LFGLoader.Instance.UpdateStatusBar("Download complete... moving files.");
                 var modPath = GetGameModPath(gamename, gamePath);
-                AdminHelperCreator.RunAdminHelper(modPath, filepath);
+                LFGLoader.Instance.progressBarMain.Visible = false;
+
+                // this shit is mega broken man, dont uncomment until fixed or it breaky breaky the entire fucking program
+                // AdminHelperCreator.RunAdminHelper(modPath, filepath);
                 // TODO: Move files
             }
 
             else
             {
+                LFGLoader.Instance.progressBarMain.Visible = false;
                 LFGLoader.Instance.UpdateStatusBar("Download failed.");
             }
             await Task.Delay(3000);

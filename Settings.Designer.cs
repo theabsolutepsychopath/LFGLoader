@@ -98,6 +98,7 @@
             valheimbrowse.TabIndex = 8;
             valheimbrowse.Text = "BROWSE";
             valheimbrowse.UseVisualStyleBackColor = true;
+            valheimbrowse.Click += valheimbrowse_Click;
             // 
             // zomboidbrowse
             // 
@@ -130,6 +131,7 @@
             valheimclear.TabIndex = 11;
             valheimclear.Text = "CLEAR";
             valheimclear.UseVisualStyleBackColor = true;
+            valheimclear.Click += valheimclear_Click;
             // 
             // zomboidclear
             // 
@@ -140,6 +142,7 @@
             zomboidclear.TabIndex = 12;
             zomboidclear.Text = "CLEAR";
             zomboidclear.UseVisualStyleBackColor = true;
+            zomboidclear.Click += zomboidclear_Click;
             // 
             // resetvalues
             // 
@@ -221,7 +224,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(15, 15, 15);
+            BackColor = Color.Black;
             ClientSize = new Size(838, 441);
             Controls.Add(SettingsLabel);
             Controls.Add(zomboidlabel);
@@ -240,10 +243,12 @@
             Controls.Add(minecraftdirbox);
             Font = new Font("ProFont IIx Nerd Font", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
+            MinimumSize = new Size(126, 50);
             Name = "Settings";
             Opacity = 0.98D;
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Form1";
+            Text = "formTheme1";
+            TransparencyKey = Color.Fuchsia;
             Load += Settings_Load;
             ResumeLayout(false);
             PerformLayout();

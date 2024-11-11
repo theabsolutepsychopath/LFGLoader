@@ -30,7 +30,6 @@ namespace LFGLoader
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LFGLoader));
-            vrMode = new CheckBox();
             installPlay = new Button();
             projectzomboid = new PictureBox();
             close = new Button();
@@ -39,24 +38,11 @@ namespace LFGLoader
             statusLabel = new Label();
             LFGText = new Label();
             minecraft = new PictureBox();
+            progressBarMain = new ReaLTaiizor.Controls.LostProgressBar();
             ((System.ComponentModel.ISupportInitialize)projectzomboid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)valheim).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minecraft).BeginInit();
             SuspendLayout();
-            // 
-            // vrMode
-            // 
-            vrMode.Anchor = AnchorStyles.Bottom;
-            vrMode.AutoSize = true;
-            vrMode.FlatStyle = FlatStyle.Popup;
-            vrMode.Font = new Font("ProFont IIx Nerd Font", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            vrMode.ForeColor = SystemColors.Control;
-            vrMode.Location = new Point(412, 565);
-            vrMode.Name = "vrMode";
-            vrMode.Size = new Size(103, 24);
-            vrMode.TabIndex = 2;
-            vrMode.Text = "VR Mode";
-            vrMode.UseVisualStyleBackColor = true;
             // 
             // installPlay
             // 
@@ -168,12 +154,28 @@ namespace LFGLoader
             minecraft.TabStop = false;
             minecraft.Click += BoxRight_Click;
             // 
+            // progressBarMain
+            // 
+            progressBarMain.BackColor = Color.FromArgb(45, 45, 48);
+            progressBarMain.Color = Color.SpringGreen;
+            progressBarMain.ForeColor = Color.FromArgb(63, 63, 70);
+            progressBarMain.Hover = false;
+            progressBarMain.Location = new Point(215, 564);
+            progressBarMain.Name = "progressBarMain";
+            progressBarMain.Progress = 50;
+            progressBarMain.Size = new Size(497, 23);
+            progressBarMain.TabIndex = 19;
+            progressBarMain.Text = "lostProgressBar1";
+            progressBarMain.Visible = false;
+            progressBarMain.Click += progressBarMain_Click;
+            // 
             // LFGLoader
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(927, 681);
+            Controls.Add(progressBarMain);
             Controls.Add(valheim);
             Controls.Add(LFGText);
             Controls.Add(statusLabel);
@@ -182,7 +184,6 @@ namespace LFGLoader
             Controls.Add(close);
             Controls.Add(projectzomboid);
             Controls.Add(installPlay);
-            Controls.Add(vrMode);
             Font = new Font("ProFont IIx Nerd Font", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -199,7 +200,6 @@ namespace LFGLoader
 
         #endregion
         private ImageList imageList1;
-        private CheckBox vrMode;
         private Button installPlay;
         private Button gaybutton;
         private Button close;
@@ -209,5 +209,6 @@ namespace LFGLoader
         public PictureBox minecraft;
         public PictureBox valheim;
         public Label statusLabel;
+        public ReaLTaiizor.Controls.LostProgressBar progressBarMain;
     }
 }
