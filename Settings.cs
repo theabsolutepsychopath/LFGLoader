@@ -148,10 +148,5 @@ namespace LFGSettings
             valheimdirbox.Text = LFGLoader.Properties.Settings.Default.valheimDir;
             zomboiddirbox.Text = LFGLoader.Properties.Settings.Default.zomboidDir;
         }
-
-        private void zomboidbrowse_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

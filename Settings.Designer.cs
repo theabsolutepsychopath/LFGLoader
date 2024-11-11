@@ -109,7 +109,7 @@
             zomboidbrowse.TabIndex = 9;
             zomboidbrowse.Text = "BROWSE";
             zomboidbrowse.UseVisualStyleBackColor = true;
-            zomboidbrowse.Click += zomboidbrowse_Click;
+            zomboidbrowse.Click += valheimbrowse_Click;
             // 
             // minecraftclear
             // 
